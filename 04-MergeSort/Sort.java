@@ -4,7 +4,7 @@ public class Sort{
 	if (list.size() == 1){
 	    return list;
 	}
-	int divider = list.size()/2;
+	double divider = list.size()/2.0;
 	ArrayList<Integer> front = new ArrayList<Integer>();
 	ArrayList<Integer> back = new ArrayList<Integer>();
 	int i;
@@ -43,13 +43,13 @@ public class Sort{
     public static void main(String[] args){
 	Sort m = new Sort();
 	ArrayList<Integer> a = new ArrayList<Integer>();
-	a.add(2);
+	a.add(20);
 	a.add(5);
 	a.add(17);
-	a.add(18);
+	a.add(1);
 	a.add(100);
-	a.add(200);
-	a.add(201);
+	a.add(98);
+	a.add(2);
 	System.out.println(a);
 	ArrayList<Integer> b = new ArrayList<Integer>();
 	b.add(3);
@@ -59,9 +59,9 @@ public class Sort{
 	b.add(10);
 	b.add(22);
 	b.add(52);
-	System.out.println(b);
-	System.out.println(m.merge(a,b));
-	System.out.println(a);
+	//System.out.println(b);
+	//System.out.println(m.merge(a,b));
+	//System.out.println(a);
 	System.out.println(m.mSort(a));
     }
 }
