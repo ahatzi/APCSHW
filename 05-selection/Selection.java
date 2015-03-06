@@ -22,5 +22,20 @@ public class Selection{
 	}
 	D[SI] = pivot;
     }
+    
+    public static void main(String[] args){
+	Selection m = new Selection();
+	int[] a = new int[6];
+	a[0] = 3;
+	a[1] = 8;
+	a[2] = 2;
+	a[3] = 12;
+	a[4] = 5;
+	a[5] = 10;
+	m.partition(a);
+	for (int i=0;i<a.length;i++){
+	    System.out.print(a[i] + ",");
+	}
+    }
 
 }
