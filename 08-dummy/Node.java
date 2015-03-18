@@ -1,12 +1,12 @@
 public class Node {
-    private String data;
+    private int data;
     private Node next;
-    public Node(String s){
-	data = s;
+    public Node(Integer n){
+	data = n;
 	next = null;
     }
-    public void setData(String s){
-	data = s;
+    public void setData(Integer n){
+	data = n;
     }
     public String getData() {
 	return data;
