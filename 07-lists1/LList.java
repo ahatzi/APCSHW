@@ -18,16 +18,20 @@ public class LList {
     }
 
     public String find(int n){
-	while (n>0){
-	    l.getNext.find(n-1)
+	Node l2 = l;
+	for (int i=n;i>0;i--){
+	    Node l3 = l2.getNext;
+	    l2 = l3;
 	}
-	return l.getData();
+	return l2.getData();
     }
 
     public void insert(int n, String s){
-	while (n>0){
-	    l.getNext.find(n-1)
+        Node l2 = l;
+	for (int i=n;i>0;i--){
+	    Node l3 = l2.getNext;
+	    l2 = l3;
 	}
-	return l.setData(s);
+	l2.setData(s);
     }
 }
