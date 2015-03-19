@@ -1,5 +1,5 @@
 public class Node {
-    private int data;
+    private Integer data;
     private Node next;
     public Node(Integer n){
 	data = n;
@@ -8,7 +8,7 @@ public class Node {
     public void setData(Integer n){
 	data = n;
     }
-    public int getData() {
+    public Integer getData() {
 	return data;
     }
     public void setNext(Node n){
@@ -17,9 +17,9 @@ public class Node {
     public Node getNext(){
 	return next;
     }
-    /*
+    
     public String toString() {
-	return data;
+	return ""+data;
     }
-    */
+    
 }

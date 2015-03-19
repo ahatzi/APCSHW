@@ -10,17 +10,19 @@ public class test{
 	}
 
 	LList L = new LList();
-	for (int i=1000;i>0;i--){
+	for (int i=0;i<1000;i++){
 	    L.add(r.nextInt(1000));
 	}
+	System.out.println(L);
 	
 	long start = System.currentTimeMillis();
 	
-	int mySum = 0;
+	Integer mySum = new Integer(0);
         for (int i=0;i<1000;i++){
 	    mySum += L.get(i);
 	}
-
+	System.out.println(mySum);
+	
 	long end = System.currentTimeMillis();
 	System.out.println(end-start);
 
@@ -30,6 +32,7 @@ public class test{
 	for (int i=0;i<1000;i++){
 	    theirSum += a.get(i);
 	}
+	System.out.println(theirSum);
 
 	long javaEnd = System.currentTimeMillis();
 	System.out.println(javaEnd-java);

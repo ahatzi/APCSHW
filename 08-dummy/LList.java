@@ -19,8 +19,8 @@ public class LList {
 	return s;
     }
 
-    public int get(int n){
-	Node l2 = l;
+    public Integer get(int n){
+	Node l2 = l.getNext();
 	for (int i=n;i>0;i--){
 	    Node l3 = l2.getNext();
 	    l2 = l3;
@@ -41,14 +41,14 @@ public class LList {
 	len++;
     }
 
-    public void remove(int n){
-	Node l2 = l;
-	for (int i=n;i>0;i--){
-	    Node l3 = l2.getNext();
-	    l2 = l3;
+    public boolean remove(Integer n){
+        Node T = l;
+	while (T.getNext() != null){
+	    if (T.getNext().getData() == n){
+		T.setNext(T.getNext().getNext());
+		return true;
+	    }
 	}
-	l2.setNext(l2.getNext().getNext());
-	l = l2;
-	len--;
+	return false;
     }
 }
