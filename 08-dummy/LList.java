@@ -2,8 +2,8 @@ public class LList {
     private Node l=new Node(null);
     private int len = 0;
 
-    public void add(String s){
-	Node tmp = new Node(s);
+    public void add(int n){
+	Node tmp = new Node(n);
 	tmp.setNext(l.getNext());
 	l.setNext(tmp);
 	len++;
@@ -19,7 +19,7 @@ public class LList {
 	return s;
     }
 
-    public String get(int n){
+    public int get(int n){
 	Node l2 = l;
 	for (int i=n;i>0;i--){
 	    Node l3 = l2.getNext();
@@ -28,8 +28,8 @@ public class LList {
 	return l2.getData();
     }
 
-    public void add(int n, String s){
-	Node a = new Node(s);
+    public void add(int n, int b){
+	Node a = new Node(b);
 	Node l2 = l;
 	for (int i=n;i>0;i--){
 	    Node l3 = l2.getNext();

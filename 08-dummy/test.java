@@ -11,27 +11,27 @@ public class test{
 
 	LList L = new LList();
 	for (int i=1000;i>0;i--){
-	    L.add(r.nextInt);
+	    L.add(r.nextInt(1000));
 	}
 	
-	start = System.currentTimeMillis();
+	long start = System.currentTimeMillis();
 	
 	int mySum = 0;
         for (int i=0;i<1000;i++){
 	    mySum += L.get(i);
 	}
 
-	end = System.currentTimeMillis();
+	long end = System.currentTimeMillis();
 	System.out.println(end-start);
 
-	java = System.currentTimeMillis();
+	long java = System.currentTimeMillis();
 
 	int theirSum = 0;
 	for (int i=0;i<1000;i++){
 	    theirSum += a.get(i);
 	}
 
-	javaEnd = System.currentTimeMillis();
+	long javaEnd = System.currentTimeMillis();
 	System.out.println(javaEnd-java);
     }
 }

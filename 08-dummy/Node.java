@@ -8,7 +8,7 @@ public class Node {
     public void setData(Integer n){
 	data = n;
     }
-    public String getData() {
+    public int getData() {
 	return data;
     }
     public void setNext(Node n){
@@ -17,7 +17,9 @@ public class Node {
     public Node getNext(){
 	return next;
     }
+    /*
     public String toString() {
 	return data;
     }
+    */
 }
