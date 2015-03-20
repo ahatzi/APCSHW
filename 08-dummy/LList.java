@@ -1,9 +1,17 @@
-public class LList {
-    private Node l=new Node(null);
+import java.io.*;
+import java.util.*;
+
+public class LList<E> implements Iterable<E> {
+    private Node<E> l=new Node<E>(null);
     private int len = 0;
 
-    public void add(int n){
-	Node tmp = new Node(n);
+    public Iterator<E> iterator(){
+	LLit<E> i = new LLit<E>(l.getNext());
+	return i;
+    }
+
+    public void add(E s){
+	Node<E> tmp = new Node<E>(s);
 	tmp.setNext(l.getNext());
 	l.setNext(tmp);
 	len++;
@@ -11,16 +19,16 @@ public class LList {
 
     public String toString(){
 	String s = "";
-	Node tmp;
-	for (tmp = l; tmp != null; tmp=tmp.getNext()){
+	Node<E> tmp;
+	for (tmp = l.getNext(); tmp != null; tmp=tmp.getNext()){
 	    s = s + tmp + " --> ";
 	}
 	s = s + "null";
 	return s;
     }
 
-    public Integer get(int n){
-	Node l2 = l.getNext();
+    public E get(int n){
+	Node<E> l2 = l.getNext();
 	for (int i=n;i>0;i--){
 	    Node l3 = l2.getNext();
 	    l2 = l3;
@@ -28,12 +36,11 @@ public class LList {
 	return l2.getData();
     }
 
-    public void add(int n, int b){
-	Node a = new Node(b);
-	Node l2 = l;
+    public void add(int n, E s){
+	Node<E> a = new Node<E>(s);
+	Node<E> l2 = l;
 	for (int i=n;i>0;i--){
-	    Node l3 = l2.getNext();
-	    l2 = l3;
+	    Node<E> l2 = l2.getNext();
 	}
 	a.setNext(l2.getNext());
 	l2.setNext(a);
@@ -41,10 +48,10 @@ public class LList {
 	len++;
     }
 
-    public boolean remove(Integer n){
-        Node T = l;
+    public boolean remove(E s){
+        Node<E> T = l;
 	while (T.getNext() != null){
-	    if (T.getNext().getData() == n){
+	    if (T.getNext().getData() == s){
 		T.setNext(T.getNext().getNext());
 		return true;
 	    }
