@@ -3,10 +3,8 @@ import java.util.*;
 
 public class LLit<E> implements Iterator<E>{
     private Node<E> t;
-    private Node<E> first;
     public LLit(Node<E> n){
 	t=n;
-	first = n;
     }
 
     public boolean hasNext(){
@@ -20,12 +18,6 @@ public class LLit<E> implements Iterator<E>{
     }
 
     public void remove() {
-	Node tmp= first;
-	while(tmp.getNext().getNext()!=null){
-	    if(tmp.getNext().getNext() == t){
-		tmp.setNext(t);
-	    }
-	    tmp = tmp.getNext();
-	}
+	// fill this in later
     }
 }
