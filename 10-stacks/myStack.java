@@ -1,6 +1,6 @@
 public class myStack<E>{
     private Node<E> l;
-
+    
     public myStack(){
 	l = null;
     }
@@ -9,7 +9,7 @@ public class myStack<E>{
 	Node<E> tmp = new Node<E>(s);
 	l = tmp;
     }
-
+    
     public void push(E data){
 	Node<E> tmp = new Node<E>(data);
 	tmp.setNext(l);
