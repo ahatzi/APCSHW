@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class Maze {
+public class maze {
 
     myQueue q = new myQueue();
 	
@@ -21,7 +21,7 @@ public class Maze {
 	} catch (Exception e) {}
     }
 
-    public Maze(){
+    public maze(){
 	maxX=40;
 	maxY=20;
 	board = new char[maxX][maxY];

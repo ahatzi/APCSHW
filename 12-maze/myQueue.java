@@ -1,42 +1,56 @@
 public class myQueue{
-    private Node<E> head;
-    private Node<E> tail;
-
+    Node first;
+    Node last;
+    int length;
+    
     public myQueue(){
-	head = null;
-	tail = null;
+	first = null;
+	last = null;
     }
 
-    public void enqueue(E data){
-	Node<E> node = new Node<E>(data);
-	if (empty()) {
-	    head = node
-	    tail = head;
-	} else {
-	    head.setNext(node);
-	    head = node;
+    public void enqueue(Node n){
+	if(first != null){
+	    last.setNext(n);
+	}else {
+	    first = n;	
 	}
+	
+	last = n;
+	length++;
     }
 
-    public E dequeue() {
-	E out = tail.getData();
-	tail = tail.getNext();
-	return out;
-    }
-
-    public boolean empty() {
-	return head == null;
-    }
-
-    public E head() {
-	return head.getData();
-    }
-
-    public int size() {
-	int size = 0;
-	for(Node<E> n = tail; n != null; n = n.getNext()) {
-	    size++;
+    public Node dequeue(){
+	if(empty()){
+	    return null;
 	}
-	return size;
+	Node tmp = first;
+	first = first.getNext();
+	length--;
+	if(first == null){
+	    last = null;
+	}
+	return tmp;
     }
+
+    public boolean empty(){	
+	return first == null;
+    }
+
+    public Node head(){
+	if(empty()){
+	    return null;
+	}
+	return first;
+    }
+
+    public String toString(){
+	String s = "";
+	Node tmp = first;
+	for (int i = 0; i<length; i++){
+	    s += tmp + " ";
+	    tmp = tmp.getNext();
+	}
+	return s;
+    }
+
 }
