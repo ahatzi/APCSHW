@@ -8,7 +8,7 @@ public class Node {
 	this.x = x;
 	this.y = y;
 	this.priority = priority;
-    }   
+    }  
 
     public Node getPrev() {
 	return prev;

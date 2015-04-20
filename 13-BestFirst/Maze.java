@@ -101,7 +101,10 @@ public class Maze
     public void addToFront(int tx,int ty, Node current){
 	Node tmp = null;
 	if (board[tx][ty]=='#' || board[tx][ty]=='$'){
-	    double priority = Math.sqrt((tx-exitX)*(tx-exitX)+(ty-exitY)*(ty-exitY));
+	    //Euclidean
+	    //double priority = Math.sqrt((tx-exitX)*(tx-exitX)+(ty-exitY)*(ty-exitY));
+	    //Manhattan
+	    double priority = Math.abs(tx-exitX)+Math.abs(ty-exitY);
 	    tmp = new Node(tx,ty,priority);
 	    tmp.setPrev(current);
 	    f.add(tmp);
@@ -111,9 +114,10 @@ public class Maze
 
     public void bfs(int x, int y){
 	f = new Frontier();
-	System.out.println(exitX);
-	System.out.println(exitY);
-	double priority = Math.sqrt((x-exitX)*(x-exitX)+(y-exitY)*(y-exitY));
+	//Euclidean
+	//double priority = Math.sqrt((x-exitX)*(x-exitX)+(y-exitY)*(y-exitY));
+	//Manhattan
+	double priority = Math.abs(x-exitX)+Math.abs(y-exitY);
 	f.add(new Node(x,y,priority));
 
 	int tx=0,ty=0;
