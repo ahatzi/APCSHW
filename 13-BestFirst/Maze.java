@@ -102,9 +102,13 @@ public class Maze
 	Node tmp = null;
 	if (board[tx][ty]=='#' || board[tx][ty]=='$'){
 	    //Euclidean
-	    //double priority = Math.sqrt((tx-exitX)*(tx-exitX)+(ty-exitY)*(ty-exitY));
+	    double priority = Math.sqrt((tx-exitX)*(tx-exitX)+(ty-exitY)*(ty-exitY));
 	    //Manhattan
-	    double priority = Math.abs(tx-exitX)+Math.abs(ty-exitY);
+	    //double priority = Math.abs(tx-exitX)+Math.abs(ty-exitY);
+	    //A*
+	    //int steps = current.getSteps()+1;
+	    //double priority = steps + Math.sqrt((tx-exitX)*(tx-exitX)+(ty-exitY)*(ty-exitY));
+	    //tmp = new Node(tx,ty,priority,steps);
 	    tmp = new Node(tx,ty,priority);
 	    tmp.setPrev(current);
 	    f.add(tmp);
@@ -115,9 +119,13 @@ public class Maze
     public void bfs(int x, int y){
 	f = new Frontier();
 	//Euclidean
-	//double priority = Math.sqrt((x-exitX)*(x-exitX)+(y-exitY)*(y-exitY));
+	double priority = Math.sqrt((x-exitX)*(x-exitX)+(y-exitY)*(y-exitY));
 	//Manhattan
-	double priority = Math.abs(x-exitX)+Math.abs(y-exitY);
+	//double priority = Math.abs(x-exitX)+Math.abs(y-exitY);
+	//A*
+	//int steps = 0;
+	//double priority = Math.sqrt((x-exitX)*(x-exitX)+(y-exitY)*(y-exitY));
+	//f.add(new Node(x,y,priority,steps));
 	f.add(new Node(x,y,priority));
 
 	int tx=0,ty=0;
