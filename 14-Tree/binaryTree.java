@@ -5,10 +5,42 @@ public class binaryTree<E extends Comparable<E>>{
 	root = new Node<E>(data);
     }
 
-    public E search(E i){
+    public Node<E> search(E i){
 	Node<E> tmp = root;
 	while (tmp != null){
-	     int c = tmp.compareTo
+	    int c = tmp.getData().compareTo(i);
+	    if (c == 0){
+		return tmp;
+	    }
+	    else if (c > 0){
+		tmp = tmp.getLeft();
+	    }
+	    else{
+		tmp = tmp.getRight();
+	    }
+	}
+	return null;
+    }
+
+    public void insert(E i){
+	Node<E> trailer;
+	Node<E> tmp = root;
+	while (tmp != null){
+	    int c = tmp.getData().compareTo(i);
+	    if (c > 0){
+		trailer = tmp;
+		tmp = tmp.getLeft();
+	    }
+	    else{
+		trailer = tmp;
+		tmp = tmp.getRight();
+	    }
+	}
+	if (trailer.getData().compareTo(i) > 0){
+	    trailer.setLeft(new Node<E>(i));
+	}
+	else{
+	    trailer.setRight(new Node<E>(i));
 	}
     }
 }
