@@ -1,7 +1,7 @@
 public class binaryTree<E extends Comparable<E>>{
     private Node<E> root = null;
     
-    public binaryTree<E>(E data){
+    public binaryTree(E data){
 	root = new Node<E>(data);
     }
 
@@ -23,7 +23,11 @@ public class binaryTree<E extends Comparable<E>>{
     }
 
     public void insert(E i){
-	Node<E> trailer;
+	if (root == null){
+	    root = new Node<E>(i);
+	    return;
+	}
+	Node<E> trailer = null;
 	Node<E> tmp = root;
 	while (tmp != null){
 	    int c = tmp.getData().compareTo(i);
