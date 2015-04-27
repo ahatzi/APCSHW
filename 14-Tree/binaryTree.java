@@ -1,10 +1,12 @@
+import java.util.Random;
+
 public class binaryTree<E extends Comparable<E>>{
     private Node<E> root = null;
     
     public binaryTree(E data){
 	root = new Node<E>(data);
     }
-
+    
     public Node<E> search(E i){
 	Node<E> tmp = root;
 	while (tmp != null){
@@ -21,7 +23,7 @@ public class binaryTree<E extends Comparable<E>>{
 	}
 	return null;
     }
-
+    
     public void insert(E i){
 	if (root == null){
 	    root = new Node<E>(i);
@@ -46,6 +48,36 @@ public class binaryTree<E extends Comparable<E>>{
 	else{
 	    trailer.setRight(new Node<E>(i));
 	}
+    }
+
+    public String Traverse(Node<E> node){
+	String retstr = "(";
+	if (node == null){
+	    retstr += ")";
+	}
+	else{
+	    retstr += node;
+	    retstr += " ---> Left(";
+	    retstr += Traverse(node.getLeft());
+	    retstr += ")";
+	    retstr += " ---> Right(";
+	    retstr += Traverse(node.getRight());
+	    retstr += ")";
+	}
+	return retstr;
+    }
+
+    public String toString(){
+        return Traverse(root);
+    }
+
+    public static void main(String[] args){
+	binaryTree A = new binaryTree(50);
+	Random r = new Random();
+	for (int i = 0;i<100;i++){
+	    A.insert(r.nextInt(100));
+	}
+	System.out.println(A);
     }
 }
 
@@ -76,5 +108,9 @@ class Node<E>{
 
     public E getData(){
 	return data;
+    }
+
+    public String toString(){
+	return data.toString();
     }
 }
