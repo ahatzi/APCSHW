@@ -72,9 +72,9 @@ public class binaryTree<E extends Comparable<E>>{
     }
 
     public static void main(String[] args){
-	binaryTree A = new binaryTree(50);
+	binaryTree<Integer> A = new binaryTree<Integer>(50);
 	Random r = new Random();
-	for (int i = 0;i<100;i++){
+	for (int i = 0;i<10;i++){
 	    A.insert(r.nextInt(100));
 	}
 	System.out.println(A);
