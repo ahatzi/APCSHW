@@ -73,22 +73,22 @@ public class binaryTree<E extends Comparable<E>>{
     public void delete(E i){
 	Node<E> tmp = search(i);
 	Node<E> parent = searchParent(i);
-	if (tmp.getRight == null && tmp.getLeft == null){
-	    if (tmp.getData() > parent.getData()){
+	if (tmp.getRight() == null && tmp.getLeft() == null){
+	    if (tmp.getData().compareTo(parent.getData()) > 0){
 		parent.setRight(null);
 	    }
 	    else{
 		parent.setLeft(null);
 	    }
 	}
-	else if ((tmp.getLeft()==null) != (tmp.getRight==null)){
-	    if ((tmp.getData() > parent.getData()) && (tmp.getLeft() != null)){
+	else if ((tmp.getLeft()==null) != (tmp.getRight()==null)){
+	    if ((tmp.getData().compareTo(parent.getData()) > 0) && (tmp.getLeft() != null)){
 		parent.setRight(tmp.getLeft());
 	    }
-	    else if ((tmp.getData() > parent.getData()) && (tmp.getRight() != null)){
+	    else if ((tmp.getData().compareTo(parent.getData()) > 0) && (tmp.getRight() != null)){
 		parent.setRight(tmp.getRight());
 	    }
-	    else if ((tmp.getData() < parent.getData()) && (tmp.getLeft() != null)){
+	    else if ((tmp.getData().compareTo(parent.getData()) < 0) && (tmp.getLeft() != null)){
 		parent.setLeft(tmp.getLeft());
 	    }
 	    else{
@@ -97,8 +97,26 @@ public class binaryTree<E extends Comparable<E>>{
 	}
 	else if ((tmp.getLeft() != null) && (tmp.getRight() != null)){
 	    Node<E> leftBranch = tmp.getLeft();
-	    while (leftBranch != null){
-		
+	    Node<E> trailer = tmp.getLeft();
+	    int count = 0;
+	    while (leftBranch.getRight() != null){
+		trailer = leftBranch;
+		leftBranch = leftBranch.getRight();
+		count++;
+	    }
+	    trailer.setRight(null);
+	    if (tmp.getData().compareTo(parent.getData()) > 0){
+		parent.setRight(leftBranch);
+	    }
+	    else{
+		parent.setLeft(leftBranch);
+	    }
+	    if (count > 0){
+		leftBranch.setRight(tmp.getRight());
+		leftBranch.setLeft(tmp.getLeft());
+	    }
+	    else{
+		leftBranch.setRight(tmp.getRight());
 	    }
 	}
     }
@@ -127,9 +145,18 @@ public class binaryTree<E extends Comparable<E>>{
     public static void main(String[] args){
 	binaryTree<Integer> A = new binaryTree<Integer>(50);
 	Random r = new Random();
-	for (int i = 0;i<10;i++){
-	    A.insert(r.nextInt(100));
-	}
+	A.insert(47);
+	A.insert(13);
+	A.insert(7);
+	A.insert(16);
+	A.insert(26);
+	A.insert(40);
+	A.insert(48);
+	A.insert(75);
+	A.insert(60);
+	A.insert(84);
+	System.out.println(A);
+	A.delete(13);
 	System.out.println(A);
     }
 }
