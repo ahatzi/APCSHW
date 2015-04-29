@@ -23,6 +23,26 @@ public class binaryTree<E extends Comparable<E>>{
 	}
 	return null;
     }
+
+    public Node<E> searchParent(E i){
+	Node<E> tmp = root;
+	Node<E> parent = root;
+	while (tmp != null){
+	    int c = tmp.getData().compareTo(i);
+	    if (c == 0){
+		return parent;
+	    }
+	    else if (c > 0){
+		parent = tmp;
+		tmp = tmp.getLeft();
+	    }
+	    else{
+		parent = tmp;
+		tmp = tmp.getRight();
+	    }
+	}
+	return null;
+    }
     
     public void insert(E i){
 	if (root == null){
@@ -50,10 +70,40 @@ public class binaryTree<E extends Comparable<E>>{
 	}
     }
 
+    public void delete(E i){
+	Node<E> tmp = search(i);
+	Node<E> parent = searchParent(i);
+	if (tmp.getRight == null && tmp.getLeft == null){
+	    if (tmp.getData() > parent.getData()){
+		parent.setRight(null);
+	    }
+	    else{
+		parent.setLeft(null);
+	    }
+	}
+	else if ((tmp.getLeft()==null) != (tmp.getRight==null)){
+	    if ((tmp.getData() > parent.getData()) && (tmp.getLeft() != null)){
+		parent.setRight(tmp.getLeft());
+	    }
+	    else if ((tmp.getData() > parent.getData()) && (tmp.getRight() != null)){
+		parent.setRight(tmp.getRight());
+	    }
+	    else if ((tmp.getData() < parent.getData()) && (tmp.getLeft() != null)){
+		parent.setLeft(tmp.getLeft());
+	    }
+	    else{
+		parent.setLeft(tmp.getRight());
+	    }
+	}
+	else if (){
+
+	}
+    }
+
     public String Traverse(Node<E> node){
-	String retstr = "(";
+	String retstr = "";
 	if (node == null){
-	    retstr += ")";
+	    retstr += "";
 	}
 	else{
 	    retstr += node;
