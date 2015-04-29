@@ -95,8 +95,11 @@ public class binaryTree<E extends Comparable<E>>{
 		parent.setLeft(tmp.getRight());
 	    }
 	}
-	else if (){
-
+	else if ((tmp.getLeft() != null) && (tmp.getRight() != null)){
+	    Node<E> leftBranch = tmp.getLeft();
+	    while (leftBranch != null){
+		
+	    }
 	}
     }
 
