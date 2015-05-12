@@ -191,6 +191,10 @@ public class binaryTree<E extends Comparable<E>>{
 	}
     }
 
+    public int diameter(Node<E> node){
+	
+    }
+
     public String Traverse(Node<E> node){
 	String retstr = "";
 	if (node == null){
