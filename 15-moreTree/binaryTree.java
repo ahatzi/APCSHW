@@ -191,6 +191,33 @@ public class binaryTree<E extends Comparable<E>>{
 	}
     }
 
+    public int longestHelper(Node<E> node){
+	if (node.getLeft() == null && node.getRight() == null){
+	    return 0;
+	}
+	else if (node == null){
+	    return 0;
+	}
+	else{
+	    left = 1 + longestHelper(node.getLeft());
+	    right = 1 + longestHelper(node.getRight());
+	    if (left > right){
+		return left;
+	    }
+	    else{
+		return right;
+	    }
+	}
+    }
+
+    public int longest(Node<E> node){
+	2 + longestHelper(node);
+    }
+
+    public void splitDupes(Node<E> node){
+	
+    }
+
     public String Traverse(Node<E> node){
 	String retstr = "";
 	if (node == null){
