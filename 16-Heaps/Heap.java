@@ -74,4 +74,10 @@ public class Heap{
 	a.set(0,swap);
 	pushDown(0);
     }
+
+    public void sort(){
+	for (int i=0;i<a.size();i++){
+	    pushDown(i);
+	}
+    }
 }
